@@ -17,6 +17,8 @@ const generatePage = () => {
     .then((resp) => resp.json())
     .then((data) => {
       console.log(data);
+      const body = document.querySelector("body")
+      body.style.backgroundColor = data.avg_color
       const container = document.querySelector(".container");
       const link = document.createElement("a");
       link.onclick = function info() {
@@ -31,7 +33,7 @@ const generatePage = () => {
       h4.innerText = `${data.alt}`;
       const button = document.createElement("button");
       button.innerText = "Back Home";
-      button.className = "btn btn-outline-secondary";
+      button.className = "btn btn-dark";
       button.onclick = function back() {
         window.location.assign("./Starting-template.html");
       };
