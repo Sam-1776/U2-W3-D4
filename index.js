@@ -1,10 +1,12 @@
 const URL = "https://api.pexels.com/v1/search";
+const query = " Natura ";
+const query2 = " ice ";
 
 window.onload = () => {
   const firstBtn = document.querySelector(".btn-primary");
   const secondBtn = document.querySelector(".btn-secondary");
-  firstBtn.onclick = takePicture;
-  secondBtn.onclick = takeNewPicture;
+  firstBtn.onclick = () => takePicture(query);
+  secondBtn.onclick = () => takePicture(query2);
 
   const form = document.querySelector("form");
   form.onsubmit = search;
@@ -29,28 +31,9 @@ const search = (e) => {
     .catch((err) => console.log(err));
 };
 
-const takePicture = () => {
+const takePicture = (x) => {
   const client = " fV4jS8Yae1kHqWB7G2Jvy2SbOBnEpfViY5gOqsILhmEJpDIIwUKmXCGY ";
-  const query = " Natura ";
-
-  fetch(URL + "?query=" + query, {
-    method: "GET",
-    headers: {
-      Authorization: client,
-    },
-  })
-    .then((resp) => resp.json())
-    .then((obj) => {
-      generateCard(obj);
-      console.log(obj);
-    })
-    .catch((err) => console.log(err));
-};
-const takeNewPicture = () => {
-  const client = " fV4jS8Yae1kHqWB7G2Jvy2SbOBnEpfViY5gOqsILhmEJpDIIwUKmXCGY ";
-  const query = " sea ";
-
-  fetch(URL + "?query=" + query, {
+  fetch(URL + "?query=" + x, {
     method: "GET",
     headers: {
       Authorization: client,
