@@ -62,7 +62,8 @@ const takeNewPicture = () =>{
     });
 }
 
- const generateCard = (x) =>{
+
+const generateCard = (x) =>{
     const container = document.querySelector(".container-md");
     container.remove()
     const newContainer = document.createElement("div")
@@ -74,11 +75,16 @@ const takeNewPicture = () =>{
         col.className = "col-4"
         const card = document.createElement("div")
         card.className = "card mb-4 shadow-sm"
+        const linkI = document.createElement("a")
+        linkI.onclick = function info(x) {
+            window.location.assign ("./details.html?Id=" + element.id)
+        }
         const img = document.createElement("img")
         img.className = "card-img-top"
         img.src = element.src.medium
         const cardBody = document.createElement("div")
         cardBody.className = "card-body"
+        const linkP = document.createElement("a")
         const h5 = document.createElement("h5")
         h5.className = "card-title"
         h5.innerText = `${element.photographer}`
@@ -101,12 +107,13 @@ const takeNewPicture = () =>{
         const small = document.createElement("small")
         small.className = "text-muted"
         small.innerText = `${element.id}`
-
         
         
         
         
-        card.appendChild(img)
+        
+        card.appendChild(linkI)
+        linkI.appendChild(img)
         card.appendChild(cardBody)
         cardBody.appendChild(h5)
         cardBody.appendChild(p)
@@ -118,9 +125,9 @@ const takeNewPicture = () =>{
         col.appendChild(card)
         row.appendChild(col)
     });
-
+    
     const album = document.querySelector(".album")
     newContainer.appendChild(row);
     album.appendChild(newContainer)
-
- }
+    
+}
