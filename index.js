@@ -81,8 +81,10 @@ const takeNewPicture = () =>{
         cardBody.className = "card-body"
         const h5 = document.createElement("h5")
         h5.className = "card-title"
+        h5.innerText = `${element.photographer}`
         const p = document.createElement("p")
         p.className = "card-text"
+        p.innerText = `${element.alt}`
         const div = document.createElement("div")
         div.className = "d-flex justify-content-between align-items-center"
         const divB = document.createElement("div")
