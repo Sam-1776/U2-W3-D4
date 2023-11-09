@@ -76,7 +76,7 @@ const generateCard = (x) =>{
         const card = document.createElement("div")
         card.className = "card mb-4 shadow-sm"
         const linkI = document.createElement("a")
-        linkI.onclick = function info(x) {
+        linkI.onclick = function info() {
             window.location.assign ("./details.html?Id=" + element.id)
         }
         const img = document.createElement("img")
@@ -85,6 +85,9 @@ const generateCard = (x) =>{
         const cardBody = document.createElement("div")
         cardBody.className = "card-body"
         const linkP = document.createElement("a")
+        linkP.onclick = function info() {
+            window.location.assign ("./details.html?Id=" + element.id)
+        }
         const h5 = document.createElement("h5")
         h5.className = "card-title"
         h5.innerText = `${element.photographer}`
@@ -115,7 +118,8 @@ const generateCard = (x) =>{
         card.appendChild(linkI)
         linkI.appendChild(img)
         card.appendChild(cardBody)
-        cardBody.appendChild(h5)
+        cardBody.appendChild(linkP)
+        linkP.appendChild(h5)
         cardBody.appendChild(p)
         cardBody.appendChild(div)
         div.appendChild(divB)
